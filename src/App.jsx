@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+  
+  
+  // this component represents the xml
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <button onClick={function() {
+        // know we have to call the "calculateDiffDOMManipulation" (takes the updated state) that is similar to "setCount" (takes the updated state) that will calculate the difference and based on the difference between the states the DOM will be updated by the ReactDOM
+        setCount(count + 1); // know there is clear difference between the states => will always do DOMmanipulation / re-rendering will occur
+      }} >Count is {count}</button>
+    </div>
   )
 }
 
-export default App
+
+export default App;
+
+// React provides different methods (useState) that takes the updated value and if there will be any differnece between the value will call the ReactDOM to do the updation.
+
+// When writing JS in xml we have to use { javascript will be present here }
